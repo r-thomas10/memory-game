@@ -13,7 +13,7 @@ body {
 header {
   font-family: "IM Fell English SC", serif;
   color: white;
-  font-size: 20px;
+  font-size: 60px;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -163,6 +163,7 @@ footer {
   header {
     font-size: 80px;
     margin-left: 5%;
+    margin-top: 200px;
   }
 
   main {
