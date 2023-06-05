@@ -1,5 +1,11 @@
 body {
   background-image: url("pexels-pixabay-2150.jpg");
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /**header text not center on smaller displays**/
@@ -7,8 +13,12 @@ body {
 header {
   font-family: "IM Fell English SC", serif;
   color: white;
-  font-size: 45px;
+  font-size: 20px;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  justify-content: center;
+  margin-left: 10%;
 }
 
 nav {
@@ -16,16 +26,37 @@ nav {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  margin-left: 10%;
+}
+
+.startContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 button {
+  display: flex;
+  justify-content: center;
+  padding: 8px;
+  margin: 5px;
+  border-radius: 14px;
+  border-color: gold;
+  background-color: #f2f2f2;
+  color: #271359;
+  align-items: center; 
+  width: 120px;
+}
+
+#reset {
   padding: 8px;
   border-radius: 14px;
   border-color: gold;
   background-color: #f2f2f2;
   color: #271359;
   align-items: center;
-  width: 150px;
+  width: 100px;
   justify-content: center;
 }
 
@@ -45,42 +76,61 @@ dialog {
 }
 
 footer {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: space-around;
+  align-items: center; */
+}
+
+.deck {
+  width: 350px;
+  height: 350px;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
-}
-
-#deck {
-  display: grid;
-  width: max-content;
-  gap: 40px;
-  grid-template-columns: repeat(4, 100px);
-  margin: 40px auto;
-}
-
-.back-face {
-  width: 100px;
-  height: 140px;
-  border: 2px solid gold;
-  border-style: groove;
+  justify-content: center;
+  perspective: 1000px;
+  border-color: antiquewhite;
   border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+}
+
+.card {
+  position: relative;
+  width: 25%;
+  height: 33.333%;
+  margin: 5px;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.card:active {
+  transform: scale(0.97);
+  transition: transform 0.2s;
+}
+
+.card.flip {
+  transform: rotateY(180deg);
+  transition: transform 0.5s;
+}
+
+.back-face,
+.front-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 15px;
   background-size: 100px;
   transition: transform 0.3s ease-in-out;
+  backface-visibility: hidden;
 }
 
 .front-face {
-    width: 100px;
-  height: 140px;
-  border: 2px solid gold;
-  border-style: groove;
-  border-radius: 5px;
-  background-size: 100px;
-  transition: transform 0.3s ease-in-out;
+  transform: rotateY(180deg);
 }
-
-/**.card.hide {
-    transform: scale(0); /shrink to hide **/
 
 .instructions {
   display: flex;
@@ -90,7 +140,7 @@ footer {
 
 #countdown {
   margin-top: 8px;
-  font-size: 50px;
+  font-size: 30px;
   color: white;
   border: 2px solid gold;
   border-radius: 20px;
@@ -99,13 +149,79 @@ footer {
 }
 
 @media only screen and (min-width: 768px) {
-  #deck {
-    position: center;
+  body {
+    /**padding-bottom: 0px;
+    margin-bottom: 0px;**/
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
   }
 
   header {
     font-size: 80px;
+    margin-left: 5%;
   }
 
-  /** for desktop **/
-}
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin-left: 10%;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+  }
+
+  button {
+    display: flex;
+    justify-content: center;
+    padding: 8px;
+    margin: 5px;
+    border-radius: 14px;
+    border-color: gold;
+    background-color: #f2f2f2;
+    color: #271359;
+    align-items: center; 
+    width: 140px;
+  }
+
+  #countdown {
+    margin-top: 8px;
+    font-size: 50px;
+    color: white;
+    border: 2px solid gold;
+    border-radius: 20px;
+    padding: 5px;
+    align-items: center;
+  }
+
+  .gameContainer {
+   padding-top: 0px;
+    margin-top: 0px;
+    margin-left: 15%;
+  }
+
+  .deck {
+    position: center;
+    width: 600px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    perspective: 1000px;
+    border-color: antiquewhite;
+    border-radius: 5px;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top: 0%;
+    padding-top: 0%;
+  }
